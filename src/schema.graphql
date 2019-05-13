@@ -1,0 +1,61 @@
+scalar Upload
+scalar Date
+
+type Query {
+    req_user: User
+    profile(username: String!): User!
+    users: [User!]!
+}
+
+type Mutation {
+    # user
+    loginUser(data: LoginUser): AuthPayload!
+    logout(id: ID): User!
+    createUser(data: CreateUserInput!) : AuthPayload!
+    changePassword(oldPassword: String!, newPassword: String!): User!
+    sendPasswordReset(email: String!): User
+    passwordReset(token: String!, password: String!): User
+}
+
+type AuthPayload {
+    token: String!
+    user: User!
+}
+
+input LoginUser {
+    email: String!
+    password: String!
+}
+
+input CreateUserInput {
+    username: String!
+    fullname: String! 
+    email: String! 
+    password: String!
+}
+
+type User {
+    id: ID!
+    fullname: String!
+    username: String!
+    email: String!
+    age: Int
+    password: String!
+    coverPhoto: String
+    profile: String
+    isActive: Boolean
+    gender: String
+    passwordResetToken: String
+    passwordResetExpires: Date
+    bio: String
+    address: String
+    country: String
+    region: String
+    updatedAt: Date!
+    createdAt: Date!
+
+}
+
+
+
+

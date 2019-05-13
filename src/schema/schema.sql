@@ -1,0 +1,21 @@
+CREATE TABLE users (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    fullname VARCHAR(255) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL,
+    bio VARCHAR(225),
+    coverPhoto: VARCHAR(255),
+    profile: VARCHAR(255),
+    gender: VARCHAR(10),
+    isActive: BOOLEAN,
+    age: INT,
+    address: VARCHAR(100),
+    country: VARCHAR(100),
+    region: VARCHAR(100),
+    passwordResetToken: VARCHAR(255),
+    passwordResetExpires: VARCHAR(255),
+    profile_pic VARCHAR(225),
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW() ON UPDATE CURRENT_TIMESTAMP
+);
